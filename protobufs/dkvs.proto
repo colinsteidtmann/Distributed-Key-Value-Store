@@ -1,0 +1,45 @@
+syntax = "proto3";
+// compile with `protoc --proto_path=protobufs dkvs.proto --cpp_out=./protobufs/generated`
+package dkvs;
+
+message PutRequest {
+  string key = 1;
+  string value = 2;
+  optional uint64 timestamp = 3;
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message ClientMessage {
+  oneof payload {
+    PutRequest put = 1;
+    GetRequest get = 2;
+  }
+}
+
+enum Status {
+  OK = 0;
+  INVALID = 1;
+  ERROR = 2;
+}
+
+message ServerMessage {
+  oneof payload {
+    PutResponse put = 1;
+    GetResponse get = 2;
+  }
+  Status status = 3;
+  string error_message = 4;
+}
+
+message PutResponse {
+  bool success = 1;
+}
+
+message GetResponse {
+  bool found = 1;
+  string value = 2;
+  uint64 timestamp = 3;
+}

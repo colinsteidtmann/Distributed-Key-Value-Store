@@ -1,0 +1,19 @@
+{
+    "name": "Distributed Key Value Store",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "zxh404.vscode-proto3"
+            ]
+        }
+    },
+    // Command to run after the container is created and code is mounted.
+    // This configures the CMake build within a 'build' directory.
+    "postCreateCommand": "cmake -S . -B build",
+    "forwardPorts": []
+}
