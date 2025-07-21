@@ -2,9 +2,9 @@ FROM debian:testing
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install gcc-13, g++-13, cmake, build tools, and Protobuf
+# Install gcc-14, g++-14, cmake, build tools, and Protobuf
 RUN apt-get update && \
-    apt-get install -y net-tools cmake build-essential curl wget git protobuf-compiler libprotobuf-dev && \
+    apt-get install -y net-tools cmake build-essential curl wget git protobuf-compiler libprotobuf-dev gdb && \
     apt-get install -y gcc-14 g++-14 && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100 && \

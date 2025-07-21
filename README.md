@@ -73,7 +73,7 @@ The DKVS operates as a cluster of independent server processes, each managing a 
    git clone https://github.com/your-username/Distributed-Key-Value-Store.git  
    cd Distributed-Key-Value-Store
 
-2. **Open in VS Code Remote Container**
+2. **Open in VS Code Dev Container**
    I haven't experimented opening this project any other way.
 
 2. **Create a build directory (automatically created by docker script) and configure CMake:**

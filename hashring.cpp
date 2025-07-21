@@ -64,7 +64,7 @@ std::vector<Node> HashRing::getNodesForKey(const std::string& key) const {
     std::unordered_set<size_t> foundNodeIdxs;
     auto it = getNodeIteratorForKey(key);
     while (result.size() < REPLICATION_FACTOR) {
-        if (foundNodeIdxs.find(it->second) != foundNodeIdxs.end()) {
+        if (foundNodeIdxs.find(it->second) == foundNodeIdxs.end()) {
             foundNodeIdxs.insert(it->second);
             result.push_back(m_nodes[it->second]);
         }
